@@ -1,0 +1,9 @@
+<h1>
+    Editar {{produto}}
+</h1>
+<p>Nome do produto</p>
+<input placeholder={{produto}} (input)="updateProductName($event)">
+<p>Quantidade</p>
+<input placeholder={{quantidade}} (input)="updateProductQtd($event)">
+<p></p>
+<button (click)="salvar()">Salvar</button>

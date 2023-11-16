@@ -1,0 +1,57 @@
+<!-- <p>Main Component</p> -->
+<!-- <section>
+  <p>Bem-vindo ao meu sistema!</p>
+</section>
+
+<section>
+  <p>
+    <input (input)="update($event)" />
+  </p>
+  <p>
+    <button (click)="onClick()">Salvar</button>
+  </p>
+</section> -->
+
+<!-- 
+<section>
+  <p>Texto Salvo: {{ savedText }}</p>
+</section> -->
+
+<h1>Lista de Compras</h1>
+<ul>
+  <li style="padding: 10px;">
+    <input type="checkbox" (change)="showComprados($event)" /> Não mostrar
+    comprados
+  </li>
+  <li style="padding-bottom: 20px;">
+    @for (item of list; track item) { @if(!item.comprado || (item.comprado &&
+    mostrarComprados)) {
+    <ul class="listaDeCompras">
+      <li style="width: 300px;">
+        <input
+          type="checkbox"
+          [checked]="item.comprado"
+          (change)="markCheckbox($event, item.produto)"
+        />
+        {{ item.produto }} - {{ item.quantidade }}
+      </li>
+      <li>
+        <button class="editButton" (click)="editItem(item)"> Edit
+        </button>
+      </li>
+
+      <li>
+        <button class="deleteButton" (click)="deleteItem($event, item.produto)"> Delete
+        </button>
+      </li>
+    </ul>
+    } }
+  </li>
+</ul>
+
+<h2>Add</h2>
+<input placeholder="Adicionar produto" (input) = "SaveProduto($event)" /><p></p>
+<input placeholder="Quantidade" (input) = "SaveQuantidade($event)" /><p></p>
+<button (click) = "AddProduto()">Adicionar</button>
+
+<router-outlet></router-outlet>

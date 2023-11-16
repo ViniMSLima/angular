@@ -1,0 +1,38 @@
+ul
+{
+    list-style-type: none;
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
+.listaDeCompras
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+
+.deleteButton
+{
+    background-color: red;
+    width: 100px;
+    height: 20px;
+    border: none;
+    border-radius: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: white;
+    font-size: 12px;
+}
+
+.editButton
+{
+    background-color: lightblue;
+    width: 100px;
+    height: 20px;
+    border: none;
+    border-radius: 50px;
+    margin-top: 5px;
+    color: white;
+    font-size: 12px;
+}
