@@ -3,18 +3,27 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { ShopListService } from '../services/shop-list.service';
 import { Product } from '../model/Product';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, MatCheckboxModule, FormsModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
 export class MainComponent implements OnInit{
+
   list : Product[] = []
   constructor(private route: ActivatedRoute, private router: Router, private service: ShopListService) {}
-
+  
+  changeCheckbox() 
+  {
+    this.service.updateList(this.list);
+    this.router.navigate(['']);
+  }
+  
   ngOnInit(): void {
     this.service.initItems();
     this.list = this.service.getItems();
@@ -75,10 +84,10 @@ export class MainComponent implements OnInit{
     this.service.updateList(this.list);
   }
 
-  mostrarComprados = true;
+  naoMostrarComprados = true;
 
   showComprados(event: any) {
-    this.mostrarComprados = !event.target.checked;
+    this.naoMostrarComprados = event.target.checked;
   }
 
   markCheckbox(event: any, produto: string) {

@@ -6,6 +6,7 @@ import { Product } from '../model/Product';
 })
 export class ShopListService 
 {
+
   updateList(list: Product[]) {
     localStorage.setItem('list', JSON.stringify(list));
   }

@@ -20,19 +20,20 @@
 <h1>Lista de Compras</h1>
 <ul>
   <li style="padding: 10px;">
-    <input type="checkbox" (change)="showComprados($event)" /> Não mostrar
+    <mat-checkbox type="checkbox" 
+        [(ngModel)]="naoMostrarComprados"
+        ></mat-checkbox> Não mostrar
     comprados
   </li>
   <li style="padding-bottom: 20px;">
     @for (item of list; track item) { @if(!item.comprado || (item.comprado &&
-    mostrarComprados)) {
+      !naoMostrarComprados)) {
     <ul class="listaDeCompras">
       <li style="width: 300px;">
-        <input
-          type="checkbox"
-          [checked]="item.comprado"
-          (change)="markCheckbox($event, item.produto)"
-        />
+        <mat-checkbox [(ngModel)]="item.comprado"
+        (ngModelChange)="changeCheckbox()"
+        ></mat-checkbox>
+
         {{ item.produto }} - {{ item.quantidade }}
       </li>
       <li>
